@@ -12,7 +12,7 @@ const target = join(outDir, "entry.txt");
 mkdirSync(outDir, { recursive: true });
 copyFileSync(source, target);
 
-// Drop one trailing newline: it's the file's terminator, not part of the roast.
+// Strip a single trailing newline: the line break ends the file, it is not part of the roast.
 let text = readFileSync(target, "utf8");
 if (text.endsWith("\n")) {
   text = text.slice(0, -1);
